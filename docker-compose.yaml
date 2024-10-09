@@ -1,0 +1,48 @@
+services:
+  postgres:
+    image: postgres:14-alpine
+    ports:
+      - 5432:5432
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=to-do
+    networks:
+      - laravel_environment
+    healthcheck:
+      test: ["CMD-SHELL", "sh -c 'pg_isready -U postgres -d to-do' || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 80s  
+#   nginx:
+#     image: nginx:1.11.10-alpine
+#     ports:
+#       - 3000:80
+#     volumes:
+#       - ./nginx.conf:/etc/nginx/conf.d/default.conf
+  web:
+    build: .
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/app
+      - /app/vendor
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_DATABASE=to-do
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=password
+    networks:
+      - laravel_environment
+volumes:
+  postgres-data:
+networks:
+  laravel_environment:
+    driver: bridge

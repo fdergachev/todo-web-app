@@ -1,0 +1,3 @@
+backend/vendor
+postgres-data/
+backend/composer.lock

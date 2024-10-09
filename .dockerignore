@@ -1,0 +1,4 @@
+vendor/
+test-laravel/vendor
+postgres-data/
+test-laravel/composer.lock
