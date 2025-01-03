@@ -1,6 +1,5 @@
-import React, { PropsWithChildren, useEffect, useRef } from 'react';
+import { PropsWithChildren, useEffect, useRef } from 'react';
 import { cn } from '../../utils/cn';
-import FlipTextTrigger from './FlipTextTrigger';
 import gsap from 'gsap';
 import CustomEase from 'gsap/CustomEase';
 

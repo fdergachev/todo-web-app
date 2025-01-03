@@ -1,4 +1,3 @@
-import React from 'react';
 import ByFedir from './shared/ByFedir';
 import FlipText from './shared/FlipText';
 import { Link } from 'react-router-dom';

@@ -9,7 +9,7 @@ import App from './App.tsx'
 import Welcome from './components/pages/Welcome.tsx';
 import Login from './components/pages/Login.tsx';
 import Registration from './components/pages/Registration.tsx';
-import { AuthProvider, useAuth } from './components/AuthProvider.tsx';
+import { AuthProvider } from './components/AuthProvider.tsx';
 import UnprotectedRoute from './components/shared/UnprotectedRoute.tsx';
 import Workspace from './components/pages/Workspace.tsx';
 import ProtectedRoute from './components/shared/ProtectedRoute.tsx';

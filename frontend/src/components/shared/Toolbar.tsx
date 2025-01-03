@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 import WellRounded from '../WellRounded';
 import IconButton from './IconButton';
 import Magnetic from './Magnetic';

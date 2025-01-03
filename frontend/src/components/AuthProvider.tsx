@@ -1,5 +1,4 @@
-import React, { createContext, PropsWithChildren, useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { createContext, PropsWithChildren, useContext, useState } from 'react';
 const AuthContext = createContext({});
 
 interface AuthContext {

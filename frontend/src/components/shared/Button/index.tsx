@@ -1,4 +1,4 @@
-import React, { Children, PropsWithChildren, useEffect, useRef } from 'react';
+import { PropsWithChildren, useEffect, useRef } from 'react';
 import arrow from '../../../assets/images/arrow-button.svg';
 import { cn } from '../../../utils/cn';
 import './style.css';

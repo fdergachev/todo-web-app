@@ -1,7 +1,7 @@
-import React, { MouseEventHandler, PropsWithChildren, ReactElement, useEffect, useRef } from 'react';
+import { MouseEventHandler, PropsWithChildren, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 
-const Magnetic = ({ children, ...props }: PropsWithChildren<{}>) => {
+const Magnetic = ({ children }: PropsWithChildren<{}>) => {
    const itemRef = useRef(null);
    const xTo = useRef<any>()
    const yTo = useRef<any>()

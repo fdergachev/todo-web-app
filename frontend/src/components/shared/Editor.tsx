@@ -1,11 +1,8 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Todo from './Todo';
-import Checkbox from './Checkbox';
-import Menu from './Menu';
 import { useData } from '../DataProvidert';
 import debounce from '../../utils/debounce';
-import { div } from 'three/tsl';
 import Page from '../../types/Page';
 import { TodoType } from '../../types/Todo';
 

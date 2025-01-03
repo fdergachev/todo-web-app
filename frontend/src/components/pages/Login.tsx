@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import arrow from '../../assets/images/arrow-main.svg';
 import glif from '../../assets/images/glif-log.svg';
 import Magnetic from '../shared/Magnetic';

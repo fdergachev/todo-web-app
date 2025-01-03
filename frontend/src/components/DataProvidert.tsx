@@ -1,13 +1,12 @@
-import React, { createContext, PropsWithChildren, useContext, useEffect, useState } from 'react';
+import { createContext, PropsWithChildren, useContext, useEffect, useState } from 'react';
 import { useAuth } from './AuthProvider';
 import Page from '../types/Page';
-import { add } from 'three/tsl';
 import { TodoType } from '../types/Todo';
 const DataContext = createContext({});
 
 export const DataProvidert = ({ children }: PropsWithChildren<{}>) => {
    const [pages, setPages] = useState<Page[] | null>(null);
-   const { user, token } = useAuth();
+   const { token } = useAuth();
    const [todos, setTodos] = useState<TodoType[] | null>(null);
 
    const fetchPages = async () => {
@@ -150,7 +149,6 @@ export const DataProvidert = ({ children }: PropsWithChildren<{}>) => {
             },
             body: JSON.stringify({ page_id: pageId, title: title, content: content })
          });
-         const res = await response.json();
          if (response.ok) {
             await fetchTodosByPage(pageId);
             return;

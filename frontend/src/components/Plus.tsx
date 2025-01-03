@@ -1,9 +1,7 @@
 
-import React, { useRef } from 'react'
-import { useGLTF, OrthographicCamera, MeshTransmissionMaterial, useTexture } from '@react-three/drei'
+import React from 'react'
+import { useGLTF, OrthographicCamera } from '@react-three/drei'
 import crossModel from '../assets/3d/cross.glb?url'
-import { useControls } from 'leva'
-import { color } from 'three/webgpu'
 
 // import concreteDiff from '../assets/3d/textures/dirty_concrete_diff_1k.jpg';
 // import concreteDisp from '../assets/3d/textures/dirty_concrete_disp_1k.jpg'
@@ -11,7 +9,7 @@ import { color } from 'three/webgpu'
 
 //@ts-ignore
 export function Plus(props: React.ComponentProps<any>) {
-   const { nodes, materials } = useGLTF(crossModel)
+   const { nodes } = useGLTF(crossModel)
 
    // const concreteTexture = useTexture({
    //    map: concreteDiff,

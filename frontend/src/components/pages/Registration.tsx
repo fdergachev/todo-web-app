@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Input from '../shared/Input';
 import Magnetic from '../shared/Magnetic';
 import Button from '../shared/Button';

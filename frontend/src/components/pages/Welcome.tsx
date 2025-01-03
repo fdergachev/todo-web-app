@@ -1,4 +1,3 @@
-import React from 'react';
 import WellRounded from '../WellRounded';
 import arrowSub from '../../assets/images/arrow-main.svg';
 import Button from '../shared/Button/index';

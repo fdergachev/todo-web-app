@@ -1,4 +1,3 @@
-import React from 'react';
 
 
 const Input = (props: { img?: string, placeholder?: string, type?: string, name?: string }) => {

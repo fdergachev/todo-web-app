@@ -1,7 +1,6 @@
-import React, { Dispatch, SetStateAction, useEffect, useRef } from 'react';
+import { Dispatch, SetStateAction, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import CustomEase from 'gsap/CustomEase';
-import clsx from 'clsx';
 import { cn } from '../../utils/cn';
 import { useAuth } from '../AuthProvider';
 import { useNavigate } from 'react-router-dom';

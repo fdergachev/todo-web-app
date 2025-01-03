@@ -1,17 +1,16 @@
 import React, { useEffect, useRef } from 'react';
 import { Plus } from './Plus';
-import { useFrame, useThree } from '@react-three/fiber';
+import { useFrame } from '@react-three/fiber';
 import { Environment, } from '@react-three/drei';
 import { useLocation } from 'react-router-dom';
 import { gsap } from 'gsap';
 
 
-function angleToRadians(angle: number): number {
-   return angle * (Math.PI / 180);
-}
+// function angleToRadians(angle: number): number {
+//    return angle * (Math.PI / 180);
+// }
 
 const Three = () => {
-   const { viewport } = useThree();
    const crossRef: any = useRef(null);
    const [prevRef, setPrevRef] = React.useState<String>("/");
 
@@ -60,7 +59,7 @@ const Three = () => {
 
 
 
-   useFrame((state: any) => {
+   useFrame(() => {
       if (!!crossRef.current) {
          crossRef.current.rotation.y += -0.005 / (multiplierX + 0.01);
       }

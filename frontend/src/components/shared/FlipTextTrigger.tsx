@@ -1,4 +1,4 @@
-import React, { forwardRef, PropsWithChildren, Ref, useEffect, useImperativeHandle, useRef } from 'react';
+import { forwardRef, PropsWithChildren, useEffect, useImperativeHandle, useRef } from 'react';
 import gsap from 'gsap';
 import CustomEase from 'gsap/CustomEase';
 
