@@ -36,7 +36,7 @@ TODO: Add FE later
 ### License
 This project is available for use under the MIT License.
 
-###Media
+### Media
 ![Снимок экрана 2025-01-03 200858](https://github.com/user-attachments/assets/32cefdd2-d6e9-4808-9320-936975fd42db)
 
 ![image](https://github.com/user-attachments/assets/9e11db38-b395-4b45-abc6-aef5d349d744)
