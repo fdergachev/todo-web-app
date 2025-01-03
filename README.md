@@ -35,3 +35,9 @@ This is an open source to-do applicaiton that enable users to create and manage 
 TODO: Add FE later
 ### License
 This project is available for use under the MIT License.
+
+###Media
+![Снимок экрана 2025-01-03 200858](https://github.com/user-attachments/assets/32cefdd2-d6e9-4808-9320-936975fd42db)
+
+![image](https://github.com/user-attachments/assets/9e11db38-b395-4b45-abc6-aef5d349d744)
+
