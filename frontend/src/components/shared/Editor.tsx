@@ -7,14 +7,15 @@ import { useData } from '../DataProvidert';
 import debounce from '../../utils/debounce';
 import { div } from 'three/tsl';
 import Page from '../../types/Page';
+import { TodoType } from '../../types/Todo';
 
 const Editor = () => {
    const params = useParams();
    const titleRef: any = useRef(null);
    const descriptionRef: any = useRef(null);
-   const { pages, updatePage } = useData();
+   const { pages, updatePage, fetchTodosByPage, todos, addTodo } = useData();
    const [pageDetails, setPageDetails] = useState({ id: 1, title: "Loading...", description: 'Loading...', updated_at: new Date(), created_at: new Date() });
-   const [todos, setTodos] = useState([{ id: 1, text: "Wow, my first to-do in this fucking app", isDone: false }, { id: 2, text: "Wow, my Second to-do, should be way longer should be way longer should be way longer", isDone: true }]);
+   const [todosLocal, setLocalTodos] = useState<TodoType[] | null>(null);
    useEffect(() => {
       if (pages && pages.length > 0) {
          const page = pages.filter((page: any) => page.id == params.id)[0];
@@ -22,10 +23,16 @@ const Editor = () => {
          setPageDetails({ ...page })
          setTimeout(() => {
             resizeTextarea()
-         })
+         }, 200)
+         fetchTodosByPage(page.id)
       }
    }, [params, pages])
-
+   useEffect(() => {
+      if (todos && todos.length > 0)
+         setLocalTodos(todos)
+      else if (todos && todos.length === 0)
+         addTodo(pageDetails.id, "-- New todo", "")
+   }, [todos])
    useEffect(() => {
       const timeoutId = setTimeout(() => {
          resizeTextarea()
@@ -51,9 +58,6 @@ const Editor = () => {
       const newPageDetails = { ...pageDetails, [e.target.name]: e.target.value }
       setPageDetails(newPageDetails)
       debouncedUpdate(newPageDetails)
-   }
-   function handleTodoCheck(id: number, e: React.ChangeEvent<HTMLInputElement>) {
-      setTodos(todos.map(todo => todo.id === id ? { ...todo, isDone: e.target.checked } : todo))
    }
 
    function formatDate(date: Date) {
@@ -86,12 +90,11 @@ const Editor = () => {
                <p>{formatDateWithUTCOffset(pageDetails.created_at)}</p>
             </div>
             <div className='w-full h-[1px] bg-Separator rounded-full mt-[30px]'></div>
-            {todos
+            {todosLocal
                ?
                <div className='mt-[70px] flex flex-col gap-1'>
-                  {todos.map((todo) =>
+                  {todosLocal.map((todo: TodoType) =>
                      <Todo {...todo} key={todo.id} >
-                        <Checkbox checked={todo.isDone} onChange={(e) => { handleTodoCheck(todo.id, e) }} />
                      </Todo>
                   )}
                </div>

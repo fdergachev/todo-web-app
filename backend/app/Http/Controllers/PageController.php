@@ -10,10 +10,7 @@ class PageController extends Controller
 {
    public function index()
    {
-      //$items = Todo::all();
-      $user_id = Auth::user()->id;
-      // error_log(message: $user_id);
-      $items = Page::where('author_id', "=", $user_id)->get();
+      $items = Page::orderBy('updated_at', 'desc')->get();
       return response()->json($items);
    }
 
@@ -28,7 +25,6 @@ class PageController extends Controller
       $item = Page::create([
          'title' => $request->get('title'),
          'description' => $request->get('description'),
-         'author_id' => Auth::user()->id
       ]);
       return response()->json($item, 201);
    }
@@ -36,9 +32,12 @@ class PageController extends Controller
    public function update(Request $request, $id)
    {
       $item = Page::find($id);
-      $item->update($request->only(["title", "description"]));
+      if ($item) {
+         $item->update($request->only(["title", "description"]));
+         return response()->json($item, 200);
+      }
+      return response()->json(null, 404);
       // all()
-      return response()->json($item, 200);
    }
 
    public function destroy($id)

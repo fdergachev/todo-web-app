@@ -1,5 +1,7 @@
 export interface TodoType {
    id: number;
-   text: string;
-   isDone: boolean;
+   title: string;
+   content: string;
+   page_id: number;
+   is_done: boolean;
 }

@@ -11,21 +11,14 @@ class TodoController extends Controller
 {
    public function index()
    {
-      //$items = Todo::all();
-      $user_id = Auth::user()->id;
-      // error_log(message: $user_id);
-      // $items = Todo::where('author_id', "=", $user_id)->get();
-      // $items = Todo::whereHas('page', function ($query) use ($user_id) {
-      //    $query->where('author_id', $user_id);
-      // })->get();
-      $items = DB::table('todos')
-         ->join('pages', 'todos.page_id', '=', 'pages.id')
-         ->select('todos.*')
-         ->where('pages.author_id', '=', $user_id)
-         ->get();
+      $items = Todo::all();
       return response()->json($items);
    }
-
+   public function indexByPage($page_id)
+   {
+      $items = Todo::where('page_id', $page_id)->orderBy('created_at', direction: 'asc')->get();
+      return response()->json($items);
+   }
    public function show($id)
    {
       $item = Todo::find($id);

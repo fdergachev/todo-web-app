@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
+use DB;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\Builder;
 class Todo extends Model
 {
    use HasFactory;
@@ -38,5 +39,34 @@ class Todo extends Model
     */
    public $incrementing = true;
 
+   public function page()
+   {
+      return $this->belongsTo(Page::class);
+   }
+
+   protected static function booted(): void
+   {
+      static::creating(function (Todo $todo) {
+         $page = DB::table('pages')
+            ->where([['pages.id', "=", $todo->page_id], ['author_id', "=", auth()->id()]])
+            ->first();
+         if ($page) {
+            $todo->page_id = $page->id;
+         } else {
+            abort(401);
+         }
+      });
+
+      static::addGlobalScope("todos", function (Builder $builder) {
+         $builder->whereHas('page', function (Builder $query) {
+            $query->where('author_id', auth()->id());
+         });
+      });
+
+      static::deleting(function ($model) {
+         // This ensures the WHERE clause uses the fully qualified column name
+         $model->qualifyColumn('id');
+      });
+   }
 }
 

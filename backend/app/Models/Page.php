@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class Page extends Model
 {
@@ -34,4 +35,14 @@ class Page extends Model
     * @var bool
     */
    public $incrementing = true;
+   protected static function booted(): void
+   {
+      static::creating(function (Page $page) {
+         $page->author_id = auth()->id();
+      });
+
+      static::addGlobalScope(function (Builder $builder) {
+         $builder->where('author_id', auth()->id());
+      });
+   }
 }

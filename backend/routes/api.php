@@ -17,6 +17,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
    Route::post('/todos', [TodoController::class, 'store']);
    Route::put('/todos/{id}', [TodoController::class, 'update']);
    Route::delete('/todos/{id}', [TodoController::class, 'destroy']);
+   Route::get('/todos/page/{page_id}', [TodoController::class, 'indexByPage']);
 });
 Route::group(['middleware' => 'auth:sanctum'], function () {
    Route::get('/pages', [PageController::class, 'index']);
