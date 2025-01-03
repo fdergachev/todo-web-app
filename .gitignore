@@ -1,3 +1,5 @@
 backend/vendor
 postgres-data/
 backend/composer.lock
+frontend/.env
+frontend/node_modules
