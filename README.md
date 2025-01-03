@@ -46,6 +46,7 @@ This is an open source to-do applicaiton that enable users to create and manage 
 * [Vite](https://vite.dev/) Vite is a blazing fast frontend build tool powering the next generation of web applications.
 * [Tailwind](https://tailwindcss.com/) Tailwind CSS is a utility-first CSS framework for rapidly building modern websites without ever leaving your HTML.
 * [GSAP](https://gsap.com/) GSAP is an industry standard JavaScript animation library from GreenSock that lets you craft high-performance animations that work in every major browser.
+* [Three.js](https://threejs.org/) The aim of the project is to create an easy-to-use, lightweight, cross-browser, general-purpose 3D library. The current builds only include WebGL and WebGPU renderers but SVG and CSS3D renderers are also available as addons.
 ### License
 This project is available for use under the MIT License.
 
