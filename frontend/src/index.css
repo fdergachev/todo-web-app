@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body{
+   font-family: 'Host Grotesk', sans-serif;
+   @apply text-[20px] tracking-[-0.07rem] text-Text
+   
+}
+
+::-moz-selection { /* Code for Firefox */
+   @apply text-BackgroundLight bg-Text
+ }
+ 
+ ::selection {
+   @apply text-BackgroundLight bg-Text
+ }
+
+ :root{
+   --transition-curve: cubic-bezier(0.76, 0, 0.24, 1);
+   --transition-curve-fast:cubic-bezier(.16,1,.3,1);
+ }

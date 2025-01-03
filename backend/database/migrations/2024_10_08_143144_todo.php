@@ -11,8 +11,9 @@ return new class extends Migration {
          $table->increments('id');
          $table->string('title', 200);
          $table->string('content', 500);
-         $table->bigInteger('author_id')->unsigned()->index()->nullable();
-         $table->foreign('author_id')->references('id')->on('users')->onDelete('cascade');
+         $table->boolean('is_done')->default(false);
+         $table->bigInteger('page_id')->unsigned()->index()->nullable();
+         $table->foreign('page_id')->references('id')->on('pages')->onDelete('cascade');
          $table->timestamps();
       });
    }

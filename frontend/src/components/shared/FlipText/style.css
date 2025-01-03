@@ -1,0 +1,11 @@
+.body div{
+      transition: all 0.65s var( --transition-curve-fast);
+}
+
+.body:hover div:nth-child(1) {
+    transform: translateY(-100%);
+}
+
+.body:hover div:nth-child(2) {
+   top: 0;
+}

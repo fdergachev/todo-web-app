@@ -1,0 +1,26 @@
+
+.main-link {
+   cursor: pointer;
+   transition: all 0.5s var(--transition-curve);
+}
+.main-link .name {
+   transition: all 0.5s var(--transition-curve);
+}
+p {
+   transition: transform 0.5s var(--transition-curve);
+}
+.main-link:hover .copy {
+   transform: rotate(360deg);
+}
+.main-link:hover .name {
+   padding-right: 66px;
+}
+.main-link:hover .name *:nth-child(1) {
+   transform: translateX(-100%);
+}
+.main-link:hover .name *:nth-child(2) {
+   transform: translateX(-25px);
+}
+.main-link:hover .name *:nth-child(3) {
+   transform: translateX(-25px);
+}

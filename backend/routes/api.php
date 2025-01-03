@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodoController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\AuthController;
 
 // Route::get('/user', function (Request $request) {
@@ -16,6 +17,13 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
    Route::post('/todos', [TodoController::class, 'store']);
    Route::put('/todos/{id}', [TodoController::class, 'update']);
    Route::delete('/todos/{id}', [TodoController::class, 'destroy']);
+});
+Route::group(['middleware' => 'auth:sanctum'], function () {
+   Route::get('/pages', [PageController::class, 'index']);
+   Route::get('/pages/{id}', [PageController::class, 'show']);
+   Route::post('/pages', [PageController::class, 'store']);
+   Route::put('/pages/{id}', [PageController::class, 'update']);
+   Route::delete('/pages/{id}', [PageController::class, 'destroy']);
 });
 
 
