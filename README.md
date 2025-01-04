@@ -16,7 +16,6 @@ This is an open source to-do applicaiton that enable users to create and manage 
 ### Usage (locally)
 * Run ```php artisan server``` in backend folder to start the API.
 * Run ```npm run dev``` in frontend folder
-* TODO: finish README.md
 ### Usage (docker)
 * Run ```docker-compose up --build -d; docker-compose logs -f``` to start the application.
 ### API Endpoints
