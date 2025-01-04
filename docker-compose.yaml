@@ -23,7 +23,7 @@ services:
 #       - 3000:80
 #     volumes:
 #       - ./nginx.conf:/etc/nginx/conf.d/default.conf
-  web:
+  backend:
     build: .
     ports:
       - 8000:8000
@@ -41,6 +41,12 @@ services:
       - DB_PASSWORD=password
     networks:
       - laravel_environment
+  frontend:
+    build: ./frontend
+    ports:
+      - 3000:3000
+    depends_on:
+      - backend
 volumes:
   postgres-data:
 networks:
